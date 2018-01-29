@@ -6,12 +6,12 @@
   <q-toolbar-title>Complain</q-toolbar-title>
   </q-toolbar>
 
-  <q-tabs v-model="tabsModel">
+  <q-tabs>
   <q-tab name="xtab-1" label="feed" icon="assignment" slot="title" />
   <q-tab name="xtab-2" label="report" icon="report problem" slot="title" />
   </q-tabs>
   </div>
-<!--<q-btn
+<q-btn
   v-back-to-top.animate="{offset: 500, duration: 200}"
   round
   color="primary"
@@ -19,18 +19,15 @@
   style="margin: 0 15px 15px 0"
 >
   <q-icon name="keyboard_arrow_up" />
-</q-btn>-->
+</q-btn>
       <!--
         Use <q-side-link> component
         instead of <q-item> for
         internal vue-router navigation
       -->
-
-    <!--
-      Replace following <div> with
-      <router-view /> component
-      if using subRoutes
-    -->
+<div class="search-bar">
+<q-search v-model="searchModel"></q-search>
+</div>
 <div class="data-feed">
     <q-list-header>Data Feed</q-list-header>
       <q-list v-for='taxi in TaxiList':key="taxi.id">
@@ -38,17 +35,14 @@
     </q-list>
 </div>
 
+
 <div class="button">
 <q-btn icon="keyboard arrow left" disabled>New</q-btn><q-btn icon="keyboard arrow right">Older</q-btn>
 </div>
-   <!-- <q-item v-for> {{taxi}} </q-item>-->
   </q-layout>
 </template>
 
-
-
 <script>
-
 import {
   dom,
   event,
@@ -65,6 +59,10 @@ import {
   QItemMain,
   QTab,
   QTabs,
+  QField,
+  QInput,
+  QCheckbox,
+  QSearch
 } from 'quasar'
 
 import Vue from 'vue'
@@ -99,16 +97,22 @@ export default
     QItemSide,
     QItemMain,
     QTab,
-    QTabs
+    QTabs,
+    QField,
+    QInput,
+    QCheckbox,
+    QSearch
   },
-  data () {
-  return {
-    tabsModel: 'xtab-1',
-    tabsOptions: [
-      {label: 'Tab 1', value: 'xtab-1'},
-      {label: 'Tab 2', value: 'xtab-2'}
-    ]
-  }
+   data () {
+    return {
+      selection: ['option1', 'option2', 'option3', 'option4',
+      'option5', 'option6', 'option7', 'option8', 'option9', 
+      'option10', 'option11', 'option12', 'option13', 'option14',
+      'option15', 'option16', 'option17', 'option18', 'option19',
+      'option20', 'option21', 'option22', 'option23', 'option24',
+      'option25', 'option26'],
+      model: new Date() // as in "right this moment"
+    }
   },
     firebase: {
     TaxiList: list
@@ -117,6 +121,11 @@ export default
 </script>
 
 <style lang="stylus">
+.search-bar {
+  margin-top:30px;
+  margin-right:20px;
+  margin-left:20px;
+}
 .q-toolbar {
   align:center;
 }
@@ -140,24 +149,55 @@ export default
   bottom:0!important;
   width: 100%;
 }
-.input {
-  border:5px;
+.q-item {
+  margin-top:10px;
+  margin-left:-10px;
+}
+.q-input {
+margin-top :-10px;
+margin-left:10px;
 }
 .q-list-header{
   font-size:20px;
   margin-top:10px;
+  margin-left:-20px;
 }
 .data-feed{
   margin-left:30px;
   margin-right:30px;
   margin-bottom:60px;
 }
+.data-report{
+  margin-left:30px;
+  margin-right:40px;
+  margin-bottom:60px;
+}
 .q-item {
   font-size:16px;
+}
+.violation-list {
+  margin-top:-10px;
 }
 .button {
   margin-left:80px;
   margin-bottom:30px;
   padding:2px;
+}
+.q-item-tile {
+  margin-top: 20px!important;
+}
+.q-checkbox {
+  padding:5px;
+  margin-left:10px;
+
+}
+.q-list {
+  padding-top:-10px;
+  margin-top:20px;
+}
+.submit-btn {
+  margin-top: 30px;
+  margin-left: 120px;
+   margin-right: 138px;
 }
 </style>
