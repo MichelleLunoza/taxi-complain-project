@@ -3,7 +3,7 @@
   <div slot="header">
   <q-toolbar color="primary">
   <img src="~assets/git.png" class="logo">
-  <q-toolbar-title>Complain</q-toolbar-title>
+  <q-toolbar-title>{{Complain}}</q-toolbar-title>
   </q-toolbar>
 
   <q-tabs>
@@ -11,7 +11,78 @@
   <q-tab name="xtab-2" label="report" icon="report problem" slot="title" />
   </q-tabs>
   </div>
-<q-btn
+
+<div class="data-report">
+    <div>
+    <q-item label>Plate Number:</q-item>
+    <q-input v-model="plate_number"/>
+    <q-item label>Taxi Name:</q-item>
+    <q-input v-model="taxi_name" />
+    <q-item label>Details:</q-item>
+    <q-input v-model="details" />
+    <q-datetime v-model="model" type="date" />
+    <q-list>
+    <q-item class="violation-list"label>Violations:</q-item>
+     <q-checkbox v-model="selection" val="option1" label="Refused boarding" />
+    <br/>
+     <q-checkbox v-model="selection" val="option2" label="Choosing passengers" />
+    <br/>
+     <q-checkbox v-model="selection" val="option3" label="Over charging" />
+    <br/>
+     <q-checkbox v-model="selection" val="option4" label="No meter" />
+    <br/>
+     <q-checkbox v-model="selection" val="option5" label="Tampered or broken meter" />
+    <br/>
+     <q-checkbox v-model="selection" val="option6" label="Contracting" />
+    <br/>
+     <q-checkbox v-model="selection" val="option7" label="No receipt" />
+    <br/>
+     <q-checkbox v-model="selection" val="option8" label="Reckless driving" />
+    <br/>
+     <q-checkbox v-model="selection" val="option9" label="Rude behavior" />
+    <br/>
+     <q-checkbox v-model="selection" val="option10" label="Smoking while driving" />
+    <br/>
+     <q-checkbox v-model="selection" val="option11" label="Not in uniform" />
+    <br/>
+     <q-checkbox v-model="selection" val="option12" label="No seatbelts" />
+    <br/>
+     <q-checkbox v-model="selection" val="option13" label="Smelly interiors" />
+    <br/>
+     <q-checkbox v-model="selection" val="option14" label="Dirty seats and interiors" />
+    <br/>
+     <q-checkbox v-model="selection" val="option15" label="Left behind items" />
+    <br/>
+     <q-checkbox v-model="selection" val="option16" label="Physical assault" />
+    <br/>
+     <q-checkbox v-model="selection" val="option17" label="Verbal harrassment" />
+    <br/>
+     <q-checkbox v-model="selection" val="option18" label="Malicious mischief" />
+    <br/>
+     <q-checkbox v-model="selection" val="option19" label="Sexual assault" />
+    <br/>
+     <q-checkbox v-model="selection" val="option20" label="Dilapidated" />
+    <br/>
+     <q-checkbox v-model="selection" val="option21" label="No taxi details inside" />
+    <br/>
+     <q-checkbox v-model="selection" val="option22" label="LPG smells" />
+    <br/>
+     <q-checkbox v-model="selection" val="option23" label="Texting while driving" />
+    <br/>
+     <q-checkbox v-model="selection" val="option24" label="Not giving exact change" />
+    <br/>
+     <q-checkbox v-model="selection" val="option25" label="No flag down of meter" />
+    <br/>
+    <q-checkbox v-model="selection" val="option26" label="Out of line" />
+    </q-list>
+    </div>
+
+<div class="submit-btn">
+    <q-btn class="submit" color="primary" :click="create_report">Submit</q-btn>
+    </div>
+</div>
+
+<!--<q-btn
   v-back-to-top.animate="{offset: 500, duration: 200}"
   round
   color="primary"
@@ -19,18 +90,18 @@
   style="margin: 0 15px 15px 0"
 >
   <q-icon name="keyboard_arrow_up" />
-</q-btn>
+</q-btn>-->
       <!--
         Use <q-side-link> component
         instead of <q-item> for
         internal vue-router navigation
       -->
-<div class="search-bar">
-<q-search v-model="searchModel"></q-search>
+<!--<div class="search-bar">
+<q-search v-model="search" placeholder="Search Taxi Plate Number"></q-search>
 </div>
 <div class="data-feed">
     <q-list-header>Data Feed</q-list-header>
-      <q-list v-for='taxi in TaxiList':key="taxi.id">
+      <q-list v-for='taxi in TaxiList'>
       <q-item label> {{taxi}} </q-item>
     </q-list>
 </div>
@@ -38,11 +109,12 @@
 
 <div class="button">
 <q-btn icon="keyboard arrow left" disabled>New</q-btn><q-btn icon="keyboard arrow right">Older</q-btn>
-</div>
+</div>-->
   </q-layout>
 </template>
 
 <script>
+
 import {
   dom,
   event,
@@ -62,7 +134,8 @@ import {
   QField,
   QInput,
   QCheckbox,
-  QSearch
+  QSearch,
+  Alert,
 } from 'quasar'
 
 import Vue from 'vue'
@@ -101,7 +174,7 @@ export default
     QField,
     QInput,
     QCheckbox,
-    QSearch
+    QSearch,
   },
    data () {
     return {
@@ -111,13 +184,28 @@ export default
       'option15', 'option16', 'option17', 'option18', 'option19',
       'option20', 'option21', 'option22', 'option23', 'option24',
       'option25', 'option26'],
-      model: new Date() // as in "right this moment"
+      model: new Date(), // as in "right this moment"
+      Complain: 'Complain',
+      taxi_name:'',
+      details:'',
+      violation:'',
+      plate_number:'',
     }
   },
     firebase: {
     TaxiList: list
+  },
+ methods: {
+    create_report () {
+    db.collection('app').add ({ 
+    plate_number: this.plate_number,
+    taxi_name: this.taxi_name,
+    violation: this.violation,
+    details: this.details,
+    })
+    }
   }
-}
+ }
 </script>
 
 <style lang="stylus">
