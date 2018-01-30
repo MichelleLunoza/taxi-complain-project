@@ -6,7 +6,7 @@
   <q-toolbar-title>{{Complain}}</q-toolbar-title>
   </q-toolbar>
 
-  <q-tabs>
+  <q-tabs v-model="selectedTab">
   <q-route-tab
     icon="assignment"
     to="/"
@@ -27,11 +27,15 @@
 <div class="data-report">
     <div>
     <q-item label>Plate Number:</q-item>
-    <q-input v-model="plate_number"/>
+    <q-input v-model="newReport.plate_number"/>
+    <q-item label>Name:</q-item>
+    <q-input v-model="newReport.name"/>
+    <q-item label>Date:</q-item>
+    <q-input v-model="newReport.date"/>
     <q-item label>Taxi's Name:</q-item>
-    <q-input v-model="taxi_name" placeholder="ex. GRAB Taxi"/>
+    <q-input v-model="newReport.taxi_name" placeholder="ex. GRAB Taxi"/>
     <q-item label>Details:</q-item>
-    <q-input v-model="details" />
+    <q-input v-model="newReport.details" />
     
     <q-list>
     <q-item class="violation-list"label>Violations:</q-item>
@@ -90,7 +94,8 @@
     </div>
 
 <div class="submit-btn">
-    <q-btn class="submit" color="primary" >Submit</q-btn>
+    <q-btn class="submit" color="primary" @click="addReport">Submit
+    </q-btn>
     </div>
 </div>
   </q-layout>
@@ -115,8 +120,22 @@ import {
   QField,
   QInput,
   QCheckbox,
-  QRouteTab
+  QRouteTab,
+  Dialog
 } from 'quasar'
+
+
+let config = {
+  apiKey: "AIzaSyBVXJqLa98z8EwegtYra8jVHv7yrfadfyI",
+    authDomain: "taxi-1fd65.firebaseapp.com",
+    databaseURL: "https://taxi-1fd65.firebaseio.com",
+    projectId: "taxi-1fd65",
+    storageBucket: "taxi-1fd65.appspot.com",
+    messagingSenderId: "218888618100"
+}
+var app = firebase.initializeApp(config);
+var db = app.database()
+let list = db.ref('TaxiList')
 
 
 export default 
@@ -137,7 +156,8 @@ export default
     QField,
     QInput,
     QCheckbox,
-    QRouteTab
+    QRouteTab,
+    Dialog
   },
    data () {
     return {
@@ -148,20 +168,33 @@ export default
       'option20', 'option21', 'option22', 'option23', 'option24',
       'option25', 'option26'],
       Complain: 'Complain',
-      model: new Date(), // as in "right this moment"
+      // as in "right this moment"
+      newReport: {
       taxi_name:'',
       details:'',
       violation:'',
       plate_number:'',
+      name: '',
+      date:'',
+      }
     }
   },
+  firebase: {
+  TaxiList: list
+      },
   methods : {
     addReport: function () {
-      TaxiListRef.push(this.addReport);
-      this.addReport.taxi_name = '';
-      this.addReport.violation = '';
-      this.addReport.plate_number = '';
-      this.addReport.details= '';
+      list.push(this.newReport);
+      this.newReport.date = '';
+      this.newReport.taxi_name = '';
+      this.newReport.violation = '';
+      this.newReport.plate_number = '';
+      this.newReport.details= '';
+
+      Dialog.create({
+      title: 'Submit',
+      message: 'Your report was successfully submitted. Please check on the feed tab your report.'
+      })
     }
   }
 }
