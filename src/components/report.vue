@@ -1,5 +1,28 @@
 <template>
   <q-layout>
+  <div slot="header">
+  <q-toolbar color="primary">
+  <img src="~assets/git.png" class="logo">
+  <q-toolbar-title>{{Complain}}</q-toolbar-title>
+  </q-toolbar>
+
+  <q-tabs>
+  <q-route-tab
+    icon="assignment"
+    to="/"
+    exact
+    slot="title"
+    label="feed"    
+  />
+    <q-route-tab
+    icon="report problem"
+    to="/report"
+    exact
+    slot="title"  
+    label="report"     
+  />
+  </q-tabs>
+  </div>
 <!-- Report Tab -->
 <div class="data-report">
     <div>
@@ -91,7 +114,8 @@ import {
   QTabs,
   QField,
   QInput,
-  QCheckbox
+  QCheckbox,
+  QRouteTab
 } from 'quasar'
 
 
@@ -112,7 +136,8 @@ export default
     QTabs,
     QField,
     QInput,
-    QCheckbox
+    QCheckbox,
+    QRouteTab
   },
    data () {
     return {
@@ -122,19 +147,41 @@ export default
       'option15', 'option16', 'option17', 'option18', 'option19',
       'option20', 'option21', 'option22', 'option23', 'option24',
       'option25', 'option26'],
+      Complain: 'Complain',
       model: new Date() // as in "right this moment"
     }
   }
 }
 </script>
 <style lang="stylus">
+.search-bar {
+  margin-top:30px;
+  margin-right:20px;
+  margin-left:20px;
+}
 .q-toolbar {
   align:center;
 }
 .body{
   margin: 110px;
 }
-
+.img{
+  align:center;
+}
+.q-toolbar-title {
+  text-align:left;
+  font-weight:13px;
+}
+.logo {
+  height:35px;
+  width:35px;
+  margin-left:120px;
+}
+.toolbar {
+  position:0;
+  bottom:0!important;
+  width: 100%;
+}
 .q-item {
   margin-top:10px;
   margin-left:-10px;
@@ -146,6 +193,12 @@ margin-left:10px;
 .q-list-header{
   font-size:20px;
   margin-top:10px;
+  margin-left:-20px;
+}
+.data-feed{
+  margin-left:30px;
+  margin-right:30px;
+  margin-bottom:60px;
 }
 .data-report{
   margin-left:30px;
@@ -181,5 +234,3 @@ margin-left:10px;
    margin-right: 138px;
 }
 </style>
-
-

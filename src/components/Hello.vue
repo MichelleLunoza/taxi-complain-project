@@ -7,12 +7,24 @@
   </q-toolbar>
 
   <q-tabs>
-  <q-tab name="xtab-1" label="feed" icon="assignment" slot="title" />
-  <q-tab name="xtab-2" label="report" icon="report problem" slot="title" />
+  <q-route-tab
+    icon="assignment"
+    to="/"
+    exact
+    slot="title"
+    label="feed"    
+  />
+    <q-route-tab
+    icon="report problem"
+    to="/report"
+    exact
+    slot="title"  
+    label="report"     
+  />
   </q-tabs>
   </div>
 
-<div class="data-report">
+<!--<div class="data-report">
     <div>
     <q-item label>Plate Number:</q-item>
     <q-input v-model="plate_number"/>
@@ -80,23 +92,22 @@
 <div class="submit-btn">
     <q-btn class="submit" color="primary" :click="create_report">Submit</q-btn>
     </div>
-</div>
+</div>-->
 
-<!--<q-btn
-  v-back-to-top.animate="{offset: 500, duration: 200}"
+<q-btn
   round
   color="primary"
   class="fixed-bottom-right animate-pop"
-  style="margin: 0 15px 15px 0"
+  style="margin: 0 15px 15px 0" 
 >
-  <q-icon name="keyboard_arrow_up" />
-</q-btn>-->
+  <q-icon name="add" />
+</q-btn>
       <!--
         Use <q-side-link> component
         instead of <q-item> for
         internal vue-router navigation
       -->
-<!--<div class="search-bar">
+<div class="search-bar">
 <q-search v-model="search" placeholder="Search Taxi Plate Number"></q-search>
 </div>
 <div class="data-feed">
@@ -109,7 +120,7 @@
 
 <div class="button">
 <q-btn icon="keyboard arrow left" disabled>New</q-btn><q-btn icon="keyboard arrow right">Older</q-btn>
-</div>-->
+</div>
   </q-layout>
 </template>
 
@@ -135,7 +146,7 @@ import {
   QInput,
   QCheckbox,
   QSearch,
-  Alert,
+  QRouteTab,
 } from 'quasar'
 
 import Vue from 'vue'
@@ -175,6 +186,7 @@ export default
     QInput,
     QCheckbox,
     QSearch,
+    QRouteTab,
   },
    data () {
     return {
@@ -190,21 +202,22 @@ export default
       details:'',
       violation:'',
       plate_number:'',
+
     }
   },
     firebase: {
     TaxiList: list
   },
  methods: {
-    create_report () {
-    db.collection('app').add ({ 
-    plate_number: this.plate_number,
-    taxi_name: this.taxi_name,
-    violation: this.violation,
-    details: this.details,
+    create_report: function () {
+	ref.push({
+	    			"taxi_name": this.taxi_name,
+	    			"details": this.details,
+	    			"violation": this.violation,
+	    			"plate_number": this.plate_number
     })
     }
-  }
+ }
  }
 </script>
 
