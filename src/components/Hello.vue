@@ -115,8 +115,12 @@
 </div>
 <div class="data-feed">
     <q-list-header>Data Feed</q-list-header>
-      <q-list v-for='taxi in TaxiList'>
-      <q-item label> {{taxi}} </q-item>
+      <q-list v-for='taxi in TaxiList' :key="taxi.name">
+      <q-item label> Date Reported: {{taxi.date}} </q-item>
+      <q-item label> Plate Number: {{taxi.plate_number}} </q-item>
+      <q-item label> Name: {{taxi.name}} </q-item>
+      <q-item label> Violation: {{taxi.taxi_name}} </q-item>
+      <q-item label> Violation: {{taxi.violation}} </q-item>
     </q-list>
 </div>
 
@@ -159,12 +163,12 @@ var firebase = require('firebase')
 Vue.use(VueFire)
 
 let config = {
-  apiKey: 'AIzaSyBVXJqLa98z8EwegtYra8jVHv7yrfadfyI',
-  authDomain: 'taxi-1fd65.firebaseapp.com',
-  databaseURL: 'https://taxi-1fd65.firebaseio.com',
-  projectId: 'taxi-1fd65',
-  storageBucket: 'taxi-1fd65.appspot.com',
-  messagingSenderId: '218888618100'
+  apiKey: "AIzaSyBVXJqLa98z8EwegtYra8jVHv7yrfadfyI",
+    authDomain: "taxi-1fd65.firebaseapp.com",
+    databaseURL: "https://taxi-1fd65.firebaseio.com",
+    projectId: "taxi-1fd65",
+    storageBucket: "taxi-1fd65.appspot.com",
+    messagingSenderId: "218888618100"
 }
 var app = firebase.initializeApp(config);
 var db = app.database()
@@ -250,7 +254,6 @@ export default
   width: 100%;
 }
 .q-item {
-  margin-top:10px;
   margin-left:-10px;
 }
 .q-input {
