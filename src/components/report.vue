@@ -196,7 +196,7 @@ export default
   width: 100%;
 }
 .q-item {
-  margin-top:10px;
+  margin-top:10px!important;
   margin-left:-10px;
 }
 .q-input {
@@ -245,5 +245,7 @@ margin-left:10px;
   margin-top: 30px;
   margin-left: 120px;
    margin-right: 138px;
+}
+.q-route-tab {
 }
 </style>

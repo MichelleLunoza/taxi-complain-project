@@ -120,6 +120,7 @@
       <q-item label> Plate Number: {{taxi.plate_number}} </q-item>
       <q-item label> Name: {{taxi.name}} </q-item>
       <q-item label> Taxi's Name: {{taxi.taxi_name}} </q-item>
+      <q-item label> Details: {{taxi.details}} </q-item>
       <q-item label> Violation: {{taxi.violation}} </q-item>
     </q-list>
 </div>
@@ -255,6 +256,7 @@ export default
 }
 .q-item {
   margin-left:-10px;
+  margin-top:-10px!important;
 }
 .q-input {
 margin-top :-10px;
@@ -264,6 +266,7 @@ margin-left:10px;
   font-size:20px;
   margin-top:10px;
   margin-left:-20px;
+  margin-bottom:-10px!important;
 }
 .data-feed{
   margin-left:30px;
