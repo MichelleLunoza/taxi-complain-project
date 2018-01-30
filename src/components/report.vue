@@ -28,8 +28,8 @@
     <div>
     <q-item label>Plate Number:</q-item>
     <q-input v-model="plate_number"/>
-    <q-item label>Taxi Name:</q-item>
-    <q-input v-model="taxi_name" />
+    <q-item label>Taxi's Name:</q-item>
+    <q-input v-model="taxi_name" placeholder="ex. GRAB Taxi"/>
     <q-item label>Details:</q-item>
     <q-input v-model="details" />
     
