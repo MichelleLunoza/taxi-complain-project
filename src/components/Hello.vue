@@ -2,7 +2,6 @@
   <q-layout>
   <div slot="header">
   <q-toolbar color="primary">
-  <img src="~assets/git.png" class="logo">
   <q-toolbar-title>{{Complain}}</q-toolbar-title>
   </q-toolbar>
 
@@ -13,7 +12,8 @@
     exact
     slot="title"
     label="feed"  
-    name="tab-1"  
+    name="tab-1"
+    align="center"  
   />
     <q-route-tab
     icon="report problem"
@@ -22,6 +22,7 @@
     slot="title"  
     label="report"  
     name="tab-2"   
+    align="center"
   />
   </q-tabs>
   </div>
@@ -152,11 +153,10 @@ export default
 .body{
   margin: 110px;
 }
-.img{
-  align:center;
-}
 .q-toolbar-title {
-  text-align:left;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   font-weight:13px;
 }
 .logo {

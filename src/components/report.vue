@@ -2,7 +2,6 @@
   <q-layout>
   <div slot="header">
   <q-toolbar color="primary">
-  <img src="~assets/git.png" class="logo">
   <q-toolbar-title>{{Complain}}</q-toolbar-title>
   </q-toolbar>
 
@@ -205,12 +204,11 @@ export default
 .body{
   margin: 110px;
 }
-.img{
-  align:center;
-}
 .q-toolbar-title {
-  text-align:left;
+  margin-left: auto;
+  margin-right: auto;
   font-weight:13px;
+  text-align: center;
 }
 .logo {
   height:35px;
