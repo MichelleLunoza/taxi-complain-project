@@ -6,20 +6,22 @@
   <q-toolbar-title>{{Complain}}</q-toolbar-title>
   </q-toolbar>
 
-  <q-tabs>
+  <q-tabs v-model="selectedTab">
   <q-route-tab
     icon="assignment"
     to="/"
     exact
     slot="title"
-    label="feed"    
+    label="feed"  
+    name="tab-1"  
   />
     <q-route-tab
     icon="report problem"
     to="/report"
     exact
     slot="title"  
-    label="report"     
+    label="report"  
+    name="tab-2"   
   />
   </q-tabs>
   </div>
@@ -95,6 +97,7 @@
 </div>-->
 
 <q-btn
+  @click="$router.push('/report')"
   round
   color="primary"
   class="fixed-bottom-right animate-pop"
@@ -196,13 +199,9 @@ export default
       'option15', 'option16', 'option17', 'option18', 'option19',
       'option20', 'option21', 'option22', 'option23', 'option24',
       'option25', 'option26'],
+      selectedTab: 'tab-1',
       model: new Date(), // as in "right this moment"
-      Complain: 'Complain',
-      taxi_name:'',
-      details:'',
-      violation:'',
-      plate_number:'',
-
+      Complain: 'Complain'
     }
   },
     firebase: {

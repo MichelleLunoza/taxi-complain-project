@@ -90,7 +90,7 @@
     </div>
 
 <div class="submit-btn">
-    <q-btn class="submit" color="primary">Submit</q-btn>
+    <q-btn class="submit" color="primary" >Submit</q-btn>
     </div>
 </div>
   </q-layout>
@@ -148,7 +148,20 @@ export default
       'option20', 'option21', 'option22', 'option23', 'option24',
       'option25', 'option26'],
       Complain: 'Complain',
-      model: new Date() // as in "right this moment"
+      model: new Date(), // as in "right this moment"
+      taxi_name:'',
+      details:'',
+      violation:'',
+      plate_number:'',
+    }
+  },
+  methods : {
+    addReport: function () {
+      TaxiListRef.push(this.addReport);
+      this.addReport.taxi_name = '';
+      this.addReport.violation = '';
+      this.addReport.plate_number = '';
+      this.addReport.details= '';
     }
   }
 }
