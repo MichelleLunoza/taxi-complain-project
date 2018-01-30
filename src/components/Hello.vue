@@ -256,7 +256,7 @@ export default
 }
 .q-item {
   margin-left:-10px;
-  margin-top:-10px!important;
+
 }
 .q-input {
 margin-top :-10px;
@@ -266,7 +266,7 @@ margin-left:10px;
   font-size:20px;
   margin-top:10px;
   margin-left:-20px;
-  margin-bottom:-10px!important;
+  margin-bottom:-20px!important;
 }
 .data-feed{
   margin-left:30px;
