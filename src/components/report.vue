@@ -6,7 +6,7 @@
   <q-toolbar-title>{{Complain}}</q-toolbar-title>
   </q-toolbar>
 
-  <q-tabs v-model="selectedTab">
+  <q-tabs>
   <q-route-tab
     icon="assignment"
     to="/"
@@ -39,57 +39,57 @@
     
     <q-list>
     <q-item class="violation-list"label>Violations:</q-item>
-     <q-checkbox v-model="selection" val="option1" label="Refused boarding" />
+     <q-checkbox v-model="selection" val="Refused boarding" label="Refused boarding" />
     <br/>
-     <q-checkbox v-model="selection" val="option2" label="Choosing passengers" />
+     <q-checkbox v-model="selection" val="Choosing passengers" label="Choosing passengers" />
     <br/>
-     <q-checkbox v-model="selection" val="option3" label="Over charging" />
+     <q-checkbox v-model="selection" val="Over charging" label="Over charging" />
     <br/>
-     <q-checkbox v-model="selection" val="option4" label="No meter" />
+     <q-checkbox v-model="selection" val="No meter" label="No meter" />
     <br/>
-     <q-checkbox v-model="selection" val="option5" label="Tampered or broken meter" />
+     <q-checkbox v-model="selection" val="Tampered or broken meter" label="Tampered or broken meter" />
     <br/>
-     <q-checkbox v-model="selection" val="option6" label="Contracting" />
+     <q-checkbox v-model="selection" val="Contracting" label="Contracting" />
     <br/>
-     <q-checkbox v-model="selection" val="option7" label="No receipt" />
+     <q-checkbox v-model="selection" val="No receipt" label="No receipt" />
     <br/>
-     <q-checkbox v-model="selection" val="option8" label="Reckless driving" />
+     <q-checkbox v-model="selection" val="Reckless driving" label="Reckless driving" />
     <br/>
-     <q-checkbox v-model="selection" val="option9" label="Rude behavior" />
+     <q-checkbox v-model="selection" val="Rude behavior" label="Rude behavior" />
     <br/>
-     <q-checkbox v-model="selection" val="option10" label="Smoking while driving" />
+     <q-checkbox v-model="selection" val="Smoking while driving" label="Smoking while driving" />
     <br/>
-     <q-checkbox v-model="selection" val="option11" label="Not in uniform" />
+     <q-checkbox v-model="selection" val="Not in uniform" label="Not in uniform" />
     <br/>
-     <q-checkbox v-model="selection" val="option12" label="No seatbelts" />
+     <q-checkbox v-model="selection" val="No seatbelts" label="No seatbelts" />
     <br/>
-     <q-checkbox v-model="selection" val="option13" label="Smelly interiors" />
+     <q-checkbox v-model="selection" val="Smelly interiors" label="Smelly interiors" />
     <br/>
-     <q-checkbox v-model="selection" val="option14" label="Dirty seats and interiors" />
+     <q-checkbox v-model="selection" val="Dirty seats and interiors" label="Dirty seats and interiors" />
     <br/>
-     <q-checkbox v-model="selection" val="option15" label="Left behind items" />
+     <q-checkbox v-model="selection" val="Left behind items" label="Left behind items" />
     <br/>
-     <q-checkbox v-model="selection" val="option16" label="Physical assault" />
+     <q-checkbox v-model="selection" val="Physical assault" label="Physical assault" />
     <br/>
-     <q-checkbox v-model="selection" val="option17" label="Verbal harrassment" />
+     <q-checkbox v-model="selection" val="Verbal harrassment" label="Verbal harrassment" />
     <br/>
-     <q-checkbox v-model="selection" val="option18" label="Malicious mischief" />
+     <q-checkbox v-model="selection" val="Malicious mischief" label="Malicious mischief" />
     <br/>
-     <q-checkbox v-model="selection" val="option19" label="Sexual assault" />
+     <q-checkbox v-model="selection" val="Sexual assault" label="Sexual assault" />
     <br/>
-     <q-checkbox v-model="selection" val="option20" label="Dilapidated" />
+     <q-checkbox v-model="selection" val="Dilapidated" label="Dilapidated" />
     <br/>
-     <q-checkbox v-model="selection" val="option21" label="No taxi details inside" />
+     <q-checkbox v-model="selection" val="No taxi details inside" label="No taxi details inside" />
     <br/>
-     <q-checkbox v-model="selection" val="option22" label="LPG smells" />
+     <q-checkbox v-model="selection" val="LPG smells" label="LPG smells" />
     <br/>
-     <q-checkbox v-model="selection" val="option23" label="Texting while driving" />
+     <q-checkbox v-model="selection" val="Texting while driving" label="Texting while driving" />
     <br/>
-     <q-checkbox v-model="selection" val="option24" label="Not giving exact change" />
+     <q-checkbox v-model="selection" val="Not giving exact change" label="Not giving exact change" />
     <br/>
-     <q-checkbox v-model="selection" val="option25" label="No flag down of meter" />
+     <q-checkbox v-model="selection" val="No flag down of meter" label="No flag down of meter" />
     <br/>
-    <q-checkbox v-model="selection" val="option26" label="Out of line" />
+    <q-checkbox v-model="selection" val="Out of line" label="Out of line" />
     </q-list>
     </div>
 
@@ -161,14 +161,8 @@ export default
   },
    data () {
     return {
-      selection: ['option1', 'option2', 'option3', 'option4',
-      'option5', 'option6', 'option7', 'option8', 'option9', 
-      'option10', 'option11', 'option12', 'option13', 'option14',
-      'option15', 'option16', 'option17', 'option18', 'option19',
-      'option20', 'option21', 'option22', 'option23', 'option24',
-      'option25', 'option26'],
+      selection: [],
       Complain: 'Complain',
-      // as in "right this moment"
       newReport: {
       taxi_name:'',
       details:'',
@@ -184,10 +178,10 @@ export default
       },
   methods : {
     addReport: function () {
+      this.newReport.violation = this.selection;
       list.push(this.newReport);
       this.newReport.date = '';
       this.newReport.taxi_name = '';
-      this.newReport.violation = '';
       this.newReport.plate_number = '';
       this.newReport.details= '';
 

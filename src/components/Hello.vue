@@ -26,75 +26,6 @@
   </q-tabs>
   </div>
 
-<!--<div class="data-report">
-    <div>
-    <q-item label>Plate Number:</q-item>
-    <q-input v-model="plate_number"/>
-    <q-item label>Taxi Name:</q-item>
-    <q-input v-model="taxi_name" />
-    <q-item label>Details:</q-item>
-    <q-input v-model="details" />
-    <q-datetime v-model="model" type="date" />
-    <q-list>
-    <q-item class="violation-list"label>Violations:</q-item>
-     <q-checkbox v-model="selection" val="option1" label="Refused boarding" />
-    <br/>
-     <q-checkbox v-model="selection" val="option2" label="Choosing passengers" />
-    <br/>
-     <q-checkbox v-model="selection" val="option3" label="Over charging" />
-    <br/>
-     <q-checkbox v-model="selection" val="option4" label="No meter" />
-    <br/>
-     <q-checkbox v-model="selection" val="option5" label="Tampered or broken meter" />
-    <br/>
-     <q-checkbox v-model="selection" val="option6" label="Contracting" />
-    <br/>
-     <q-checkbox v-model="selection" val="option7" label="No receipt" />
-    <br/>
-     <q-checkbox v-model="selection" val="option8" label="Reckless driving" />
-    <br/>
-     <q-checkbox v-model="selection" val="option9" label="Rude behavior" />
-    <br/>
-     <q-checkbox v-model="selection" val="option10" label="Smoking while driving" />
-    <br/>
-     <q-checkbox v-model="selection" val="option11" label="Not in uniform" />
-    <br/>
-     <q-checkbox v-model="selection" val="option12" label="No seatbelts" />
-    <br/>
-     <q-checkbox v-model="selection" val="option13" label="Smelly interiors" />
-    <br/>
-     <q-checkbox v-model="selection" val="option14" label="Dirty seats and interiors" />
-    <br/>
-     <q-checkbox v-model="selection" val="option15" label="Left behind items" />
-    <br/>
-     <q-checkbox v-model="selection" val="option16" label="Physical assault" />
-    <br/>
-     <q-checkbox v-model="selection" val="option17" label="Verbal harrassment" />
-    <br/>
-     <q-checkbox v-model="selection" val="option18" label="Malicious mischief" />
-    <br/>
-     <q-checkbox v-model="selection" val="option19" label="Sexual assault" />
-    <br/>
-     <q-checkbox v-model="selection" val="option20" label="Dilapidated" />
-    <br/>
-     <q-checkbox v-model="selection" val="option21" label="No taxi details inside" />
-    <br/>
-     <q-checkbox v-model="selection" val="option22" label="LPG smells" />
-    <br/>
-     <q-checkbox v-model="selection" val="option23" label="Texting while driving" />
-    <br/>
-     <q-checkbox v-model="selection" val="option24" label="Not giving exact change" />
-    <br/>
-     <q-checkbox v-model="selection" val="option25" label="No flag down of meter" />
-    <br/>
-    <q-checkbox v-model="selection" val="option26" label="Out of line" />
-    </q-list>
-    </div>
-
-<div class="submit-btn">
-    <q-btn class="submit" color="primary" :click="create_report">Submit</q-btn>
-    </div>
-</div>-->
 
 <q-btn
   @click="$router.push('/report')"
@@ -125,10 +56,10 @@
     </q-list>
 </div>
 
-
+<!--
 <div class="button">
 <q-btn icon="keyboard arrow left" disabled>New</q-btn><q-btn icon="keyboard arrow right">Older</q-btn>
-</div>
+</div>-->
   </q-layout>
 </template>
 
@@ -198,30 +129,14 @@ export default
   },
    data () {
     return {
-      selection: ['option1', 'option2', 'option3', 'option4',
-      'option5', 'option6', 'option7', 'option8', 'option9', 
-      'option10', 'option11', 'option12', 'option13', 'option14',
-      'option15', 'option16', 'option17', 'option18', 'option19',
-      'option20', 'option21', 'option22', 'option23', 'option24',
-      'option25', 'option26'],
       selectedTab: 'tab-1',
-      model: new Date(), // as in "right this moment"
-      Complain: 'Complain'
+      Complain: 'Complain',
+      search: '',
     }
   },
     firebase: {
     TaxiList: list
   },
- methods: {
-    create_report: function () {
-	ref.push({
-	    			"taxi_name": this.taxi_name,
-	    			"details": this.details,
-	    			"violation": this.violation,
-	    			"plate_number": this.plate_number
-    })
-    }
- }
  }
 </script>
 
