@@ -48,6 +48,7 @@
 <div class="data-feed">
     <q-list-header>Reports</q-list-header>
       <q-list v-for='taxi in TaxiList' :key="taxi.date_created">
+      <q-item label> Date Created the Report: {{taxi.date_created}} </q-item>
       <q-item label> Date of Incident: {{taxi.date}} </q-item>
       <q-item label> Plate Number: {{taxi.plate_number}} </q-item>
       <q-item label> Taxi's Name: {{taxi.taxi_name}} </q-item>

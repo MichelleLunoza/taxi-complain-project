@@ -170,7 +170,7 @@ export default
       violation:'',
       plate_number:'',
       date: moment().format('MMM/D/YYYY'),
-      date_created: moment().format(),
+      date_created: moment().format('MMM/D/YYYY hh:mm:ss'),
       }
     }
   },
