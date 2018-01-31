@@ -169,8 +169,7 @@ export default
       details:'',
       violation:'',
       plate_number:'',
-      name: '',
-      date: moment().format('MMM-D-YYYY'),
+      date: moment().format('MMM/D/YYYY'),
       date_created: moment().format(),
       }
     }
