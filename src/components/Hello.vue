@@ -1,11 +1,11 @@
 <template>
   <q-layout>
   <div slot="header">
-  <q-toolbar color="primary">
+  <q-toolbar color="secondary">
   <q-toolbar-title>{{Complain}}</q-toolbar-title>
   </q-toolbar>
 
-  <q-tabs v-model="selectedTab">
+  <q-tabs v-model="selectedTab" color="secondary">
   <q-route-tab
     icon="assignment"
     to="/"
@@ -31,7 +31,7 @@
 <q-btn
   @click="$router.push('/report')"
   round
-  color="primary"
+  color="secondary"
   class="fixed-bottom-right animate-pop"
   style="margin: 0 15px 15px 0" 
 >
@@ -51,7 +51,8 @@
       <q-item label> Date Reported: {{taxi.date}} </q-item>
       <q-item label> Plate Number: {{taxi.plate_number}} </q-item>
       <q-item label> Taxi's Name: {{taxi.taxi_name}} </q-item>
-      <q-item label> Violation: {{taxi.violation}} </q-item>
+      <q-item label> Violations:  </q-item>
+      <q-item v-for='item in taxi.violation' :key="taxi.id"><li class="bullet">{{item}}</li></q-item>
       <q-item label> Details: {{taxi.details}} </q-item>
     </q-list>
 </div>
@@ -219,5 +220,9 @@ margin-left:10px;
   margin-top: 30px;
   margin-left: 120px;
    margin-right: 138px;
+}
+.bullet {
+  margin-top:-30px;
+  margin-bottom:-30px;
 }
 </style>

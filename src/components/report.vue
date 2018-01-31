@@ -1,11 +1,11 @@
 <template>
   <q-layout>
   <div slot="header">
-  <q-toolbar color="primary">
+  <q-toolbar color="secondary">
   <q-toolbar-title>{{Complain}}</q-toolbar-title>
   </q-toolbar>
 
-  <q-tabs>
+  <q-tabs color="secondary">
   <q-route-tab
     icon="assignment"
     to="/"
@@ -39,49 +39,49 @@
     
     <q-list>
     <q-item class="violation-list"label>Violations:</q-item>
-     <q-checkbox v-model="selection" val="Refused boarding" label="Refused boarding" />
+     <q-checkbox v-model="selection" val="Refused boarding" label="Refused boarding" color="secondary" />
     <br/>
-     <q-checkbox v-model="selection" val="Choosing passengers" label="Choosing passengers" />
+     <q-checkbox v-model="selection" val="Choosing passengers" label="Choosing passengers" color="secondary" />
     <br/>
-     <q-checkbox v-model="selection" val="Over charging" label="Over charging" />
+     <q-checkbox v-model="selection" val="Over charging" label="Over charging" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="No meter" label="No meter" />
+     <q-checkbox v-model="selection" val="No meter" label="No meter" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Tampered or broken meter" label="Tampered or broken meter" />
+     <q-checkbox v-model="selection" val="Tampered or broken meter" label="Tampered or broken meter" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Contracting" label="Contracting" />
+     <q-checkbox v-model="selection" val="Contracting" label="Contracting" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="No receipt" label="No receipt" />
+     <q-checkbox v-model="selection" val="No receipt" label="No receipt" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Reckless driving" label="Reckless driving" />
+     <q-checkbox v-model="selection" val="Reckless driving" label="Reckless driving" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Rude behavior" label="Rude behavior" />
+     <q-checkbox v-model="selection" val="Rude behavior" label="Rude behavior" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Smoking while driving" label="Smoking while driving" />
+     <q-checkbox v-model="selection" val="Smoking while driving" label="Smoking while driving" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Not in uniform" label="Not in uniform" />
+     <q-checkbox v-model="selection" val="Not in uniform" label="Not in uniform" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="No seatbelts" label="No seatbelts" />
+     <q-checkbox v-model="selection" val="No seatbelts" label="No seatbelts" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Smelly interiors" label="Smelly interiors" />
+     <q-checkbox v-model="selection" val="Smelly interiors" label="Smelly interiors" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Dirty seats and interiors" label="Dirty seats and interiors" />
+     <q-checkbox v-model="selection" val="Dirty seats and interiors" label="Dirty seats and interiors" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Left behind items" label="Left behind items" />
+     <q-checkbox v-model="selection" val="Left behind items" label="Left behind items" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Physical assault" label="Physical assault" />
+     <q-checkbox v-model="selection" val="Physical assault" label="Physical assault" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Verbal harrassment" label="Verbal harrassment" />
+     <q-checkbox v-model="selection" val="Verbal harrassment" label="Verbal harrassment" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Malicious mischief" label="Malicious mischief" />
+     <q-checkbox v-model="selection" val="Malicious mischief" label="Malicious mischief" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Sexual assault" label="Sexual assault" />
+     <q-checkbox v-model="selection" val="Sexual assault" label="Sexual assault" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Dilapidated" label="Dilapidated" />
+     <q-checkbox v-model="selection" val="Dilapidated" label="Dilapidated" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="No taxi details inside" label="No taxi details inside" />
+     <q-checkbox v-model="selection" val="No taxi details inside" label="No taxi details inside" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="LPG smells" label="LPG smells" />
+     <q-checkbox v-model="selection" val="LPG smells" label="LPG smells" color="secondary"/>
     <br/>
      <q-checkbox v-model="selection" val="Texting while driving" label="Texting while driving" />
     <br/>
@@ -94,7 +94,7 @@
     </div>
 
 <div class="submit-btn">
-    <q-btn class="submit" color="primary" @click="addReport">Submit
+    <q-btn class="submit" color="secondary" @click="addReport">Submit
     </q-btn>
     </div>
 </div>
@@ -263,9 +263,6 @@ margin-left:10px;
 .q-checkbox {
   padding:5px;
   margin-left:10px;
-}
-.q-datetime {
-  margin-left:-20px!important;
 }
 .q-list {
   padding-top:-10px;
