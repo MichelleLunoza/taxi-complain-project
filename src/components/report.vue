@@ -271,7 +271,8 @@ margin-left:10px;
 }
 .submit-btn {
   margin-left: 120px;
-   margin-right: 138px;
+  margin-right: 138px;
+  margin-top:-20px;
 }
 .textarea {
   margin-top:2px;
