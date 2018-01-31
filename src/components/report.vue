@@ -27,8 +27,8 @@
     <div>
     <q-item label>Plate Number:</q-item>
     <q-input v-model="newReport.plate_number"/>
-    <q-item label>Date:</q-item>
-    <q-datetime v-model="newReport.date" type="date" />
+    <q-item label>Date of Incident:</q-item>
+    <q-datetime v-model="newReport.date" type="date"/>
     <q-item label>Taxi's Name:</q-item>
     <q-input v-model="newReport.taxi_name" placeholder="ex. GRAB Taxi"/>
     <q-item label>Details:</q-item>
@@ -92,7 +92,7 @@
     <q-checkbox v-model="selection" val="Out of line" label="Out of line" />
     </q-list>
     </div>
-
+    <q-item v-model="newReport.date_created"/>
 <div class="submit-btn">
     <q-btn class="submit" color="secondary" @click="addReport">Submit
     </q-btn>
@@ -171,6 +171,7 @@ export default
       plate_number:'',
       name: '',
       date: moment().format('MMM-D-YYYY'),
+      date_created: moment().format(),
       }
     }
   },
@@ -185,6 +186,7 @@ export default
       this.newReport.taxi_name = '';
       this.newReport.plate_number = '';
       this.newReport.details= '';
+      this.newReport.date_created= '';
 
       Dialog.create({
       title: 'Submit',
@@ -269,7 +271,6 @@ margin-left:10px;
   margin-top:20px;
 }
 .submit-btn {
-  margin-top: 30px;
   margin-left: 120px;
    margin-right: 138px;
 }
