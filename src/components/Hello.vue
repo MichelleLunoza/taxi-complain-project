@@ -46,7 +46,7 @@
 <q-search v-model="search" placeholder="Search Taxi Plate Number"></q-search>
 </div>
 <div class="data-feed">
-    <q-list-header>Data Feed</q-list-header>
+    <q-list-header>Reports</q-list-header>
       <q-list v-for='taxi in TaxiList' :key="taxi.id">
       <q-item label> Date Reported: {{taxi.date}} </q-item>
       <q-item label> Plate Number: {{taxi.plate_number}} </q-item>

@@ -30,7 +30,7 @@
     <q-item label>Name:</q-item>
     <q-input v-model="newReport.name"/>
     <q-item label>Date:</q-item>
-    <q-input v-model="newReport.date"/>
+    <q-datetime v-model="newReport.date" type="date" />
     <q-item label>Taxi's Name:</q-item>
     <q-input v-model="newReport.taxi_name" placeholder="ex. GRAB Taxi"/>
     <q-item label>Details:</q-item>
@@ -120,9 +120,10 @@ import {
   QInput,
   QCheckbox,
   QRouteTab,
-  Dialog
+  Dialog,
+  QDatetime
 } from 'quasar'
-
+import moment from 'moment'
 
 let config = {
   apiKey: "AIzaSyBVXJqLa98z8EwegtYra8jVHv7yrfadfyI",
@@ -156,7 +157,8 @@ export default
     QInput,
     QCheckbox,
     QRouteTab,
-    Dialog
+    Dialog,
+    QDatetime
   },
    data () {
     return {
@@ -168,7 +170,7 @@ export default
       violation:'',
       plate_number:'',
       name: '',
-      date:'',
+      date: moment().format('MMM-d-YYYY'),
       }
     }
   },
