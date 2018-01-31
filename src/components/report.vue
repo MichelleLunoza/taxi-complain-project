@@ -27,14 +27,15 @@
     <div>
     <q-item label>Plate Number:</q-item>
     <q-input v-model="newReport.plate_number"/>
-    <q-item label>Name:</q-item>
-    <q-input v-model="newReport.name"/>
     <q-item label>Date:</q-item>
     <q-datetime v-model="newReport.date" type="date" />
     <q-item label>Taxi's Name:</q-item>
     <q-input v-model="newReport.taxi_name" placeholder="ex. GRAB Taxi"/>
     <q-item label>Details:</q-item>
-    <q-input v-model="newReport.details" />
+    <q-input class="textarea"
+    v-model="newReport.details"
+    type="textarea"
+    />
     
     <q-list>
     <q-item class="violation-list"label>Violations:</q-item>
@@ -165,12 +166,11 @@ export default
       selection: [],
       Complain: 'Complain',
       newReport: {
-      taxi_name:'',
       details:'',
       violation:'',
       plate_number:'',
       name: '',
-      date: moment().format('MMM-d-YYYY'),
+      date: moment().format('MMM-D-YYYY'),
       }
     }
   },
@@ -247,6 +247,7 @@ margin-left:10px;
 }
 .q-item {
   font-size:16px;
+  margin-top:-10px;
 }
 .violation-list {
   margin-top:-10px;
@@ -262,7 +263,9 @@ margin-left:10px;
 .q-checkbox {
   padding:5px;
   margin-left:10px;
-
+}
+.q-datetime {
+  margin-left:-20px!important;
 }
 .q-list {
   padding-top:-10px;
@@ -273,6 +276,7 @@ margin-left:10px;
   margin-left: 120px;
    margin-right: 138px;
 }
-.q-route-tab {
+.textarea {
+  margin-top:2px;
 }
 </style>

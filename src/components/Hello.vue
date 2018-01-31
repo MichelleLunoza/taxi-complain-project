@@ -50,10 +50,9 @@
       <q-list v-for='taxi in TaxiList' :key="taxi.id">
       <q-item label> Date Reported: {{taxi.date}} </q-item>
       <q-item label> Plate Number: {{taxi.plate_number}} </q-item>
-      <q-item label> Name: {{taxi.name}} </q-item>
       <q-item label> Taxi's Name: {{taxi.taxi_name}} </q-item>
-      <q-item label> Details: {{taxi.details}} </q-item>
       <q-item label> Violation: {{taxi.violation}} </q-item>
+      <q-item label> Details: {{taxi.details}} </q-item>
     </q-list>
 </div>
 
