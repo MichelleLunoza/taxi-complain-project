@@ -106,7 +106,7 @@ let config = {
 }
 var app = firebase.initializeApp(config);
 var db = app.database()
-let list = db.ref('TaxiList')
+let list = db.ref('TaxiList').orderByChild('date_created')
 
 export default 
  {
