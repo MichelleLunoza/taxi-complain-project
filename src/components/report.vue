@@ -28,15 +28,15 @@
 <div class="data-report">
     <div>
     <q-item label>Plate Number:</q-item>
-    <q-input v-model="newReport.plate_number"/>
+    <q-input v-model="newReport.plate_number" color="secondary"/>
     <q-item label>Date of Incident:</q-item>
     <q-datetime v-model="newReport.date" type="date" format="MMMM D,YYYY" color="secondary"/>
     <q-item label>Taxi's Name:</q-item>
-    <q-input v-model="newReport.taxi_name" placeholder="ex. GRAB Taxi"/>
+    <q-input v-model="newReport.taxi_name" placeholder="ex. GRAB Taxi" color="secondary"/>
     <q-item label>Details:</q-item>
     <q-input class="textarea"
     v-model="newReport.details"
-    type="textarea"
+    type="textarea" color="secondary"
     />
     
     <q-list>

@@ -56,7 +56,7 @@
       <q-item label> Details: {{taxi.details}} </q-item>
     </q-list>
 </div>
-
+<q-pagination v-model="page" :min="minPages" :max="maxPages" color="secondary"/>
 <!--
 <div class="button">
 <q-btn icon="keyboard arrow left" disabled>New</q-btn><q-btn icon="keyboard arrow right">Older</q-btn>
@@ -93,6 +93,7 @@ import {
   QCheckbox,
   QSearch,
   QRouteTab,
+  QPagination
 } from 'quasar'
 
 import Vue from 'vue'
@@ -111,7 +112,7 @@ let config = {
 }
 var app = firebase.initializeApp(config);
 var db = app.database()
-let list = db.ref('TaxiList').orderByChild('date_created')
+let list = db.ref('TaxiList')
 
 export default 
  {
@@ -133,12 +134,16 @@ export default
     QCheckbox,
     QSearch,
     QRouteTab,
+    QPagination
   },
    data () {
     return {
       selectedTab: 'tab-1',
       Complain: 'Complain',
       search: '',
+      page: 1,
+      minPages: 1,
+      maxPages: 27
     }
   },
     firebase: {
@@ -230,5 +235,9 @@ margin-left:10px;
 .bullet {
   margin-top:-30px;
   margin-bottom:-30px;
+}
+.q-pagination {
+  margin-left:80px;
+  margin-right:90px;
 }
 </style>
