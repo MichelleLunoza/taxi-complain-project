@@ -48,7 +48,6 @@
 <div class="data-feed">
     <q-list-header>Reports</q-list-header>
       <q-list v-for='taxi in TaxiList' :key="taxi.date_created">
-      <q-item label> Created Report: {{taxi.date_created}} </q-item>
       <q-item label> Date of Incident: {{taxi.date}} </q-item>
       <q-item label> Plate Number: {{taxi.plate_number}} </q-item>
       <q-item label> Taxi's Name: {{taxi.taxi_name}} </q-item>
@@ -66,6 +65,12 @@
 </template>
 
 <script>
+
+import moment from 'moment'
+Vue.filter('formattedDate',function(value){
+  var rawdate = value.toString().replace('-','');
+  return moment(new Date(parseInt(rawdate))).format('MMM-D-YYYY hh:mm:ss A')
+});
 
 import {
   dom,

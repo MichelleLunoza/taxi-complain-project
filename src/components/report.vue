@@ -30,7 +30,7 @@
     <q-item label>Plate Number:</q-item>
     <q-input v-model="newReport.plate_number"/>
     <q-item label>Date of Incident:</q-item>
-    <q-datetime v-model="newReport.date" type="date"/>
+    <q-datetime v-model="newReport.date" type="date" format="MMMM D,YYYY" color="secondary"/>
     <q-item label>Taxi's Name:</q-item>
     <q-input v-model="newReport.taxi_name" placeholder="ex. GRAB Taxi"/>
     <q-item label>Details:</q-item>
@@ -172,7 +172,7 @@ export default
       violation:'',
       plate_number:'',
       date: moment().format('MMM/D/YYYY'),
-      date_created: moment().format('MMM/D/YYYY hh:mm:ss A'),
+      date_created: -(new Date().getTime())
       
       }
     }
