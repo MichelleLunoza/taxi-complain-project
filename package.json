@@ -16,11 +16,9 @@
     "firebase": "^4.9.0",
     "moment": "^2.20.1",
     "quasar-extras": "0.x",
-    "quasar-framework": "^0.14.4",
-    "vue": "^2.5.13",
-    "vue-backtotop": "^1.2.8",
+    "quasar-framework": "0.14.9",
+    "vue": "^2.5.0",
     "vue-router": "^3.0.1",
-    "vue-scrollto": "^2.8.0",
     "vuefire": "^1.4.5"
   },
   "devDependencies": {
@@ -62,7 +60,6 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "url-loader": "^0.5.7",
-    "vue-ad-banners": "^1.0.0",
     "vue-loader": "^13.0.5",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.5.0",

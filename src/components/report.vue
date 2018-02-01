@@ -181,7 +181,7 @@ export default
   TaxiList: list
       },
   methods : {
-    addReport: function () {
+    addReport: function (e) {
       this.newReport.violation = this.selection;
       list.push(this.newReport);
       this.newReport.date = '';
@@ -195,8 +195,8 @@ export default
       })
       this.selection=[]
     }
-  }
 }
+ }
 </script>
 <style lang="stylus">
 .search-bar {
