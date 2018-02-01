@@ -12,13 +12,15 @@
     exact
     slot="title"
     label="feed"    
+    name="tab-1"
   />
     <q-route-tab
     icon="report problem"
     to="/report"
     exact
     slot="title"  
-    label="report"     
+    label="report"   
+    name="tab-2"  
   />
   </q-tabs>
   </div>
@@ -83,13 +85,13 @@
     <br/>
      <q-checkbox v-model="selection" val="LPG smells" label="LPG smells" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Texting while driving" label="Texting while driving" />
+     <q-checkbox v-model="selection" val="Texting while driving" label="Texting while driving" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="Not giving exact change" label="Not giving exact change" />
+     <q-checkbox v-model="selection" val="Not giving exact change" label="Not giving exact change" color="secondary"/>
     <br/>
-     <q-checkbox v-model="selection" val="No flag down of meter" label="No flag down of meter" />
+     <q-checkbox v-model="selection" val="No flag down of meter" label="No flag down of meter" color="secondary"/>
     <br/>
-    <q-checkbox v-model="selection" val="Out of line" label="Out of line" />
+    <q-checkbox v-model="selection" val="Out of line" label="Out of line" color="secondary"/>
     </q-list>
     </div>
     <q-item v-model="newReport.date_created"/>
@@ -170,7 +172,8 @@ export default
       violation:'',
       plate_number:'',
       date: moment().format('MMM/D/YYYY'),
-      date_created: moment().format('MMM/D/YYYY hh:mm:ss'),
+      date_created: moment().format('MMM/D/YYYY hh:mm:ss A'),
+      
       }
     }
   },
@@ -186,11 +189,11 @@ export default
       this.newReport.plate_number = '';
       this.newReport.details= '';
       this.newReport.date_created= '';
-
       Dialog.create({
       title: 'Submit',
       message: 'Your report was successfully submitted. Please check on the feed tab your report.'
       })
+      this.selection=[]
     }
   }
 }
