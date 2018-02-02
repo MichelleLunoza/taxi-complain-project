@@ -48,6 +48,7 @@
 <div class="data-feed">
     <q-list-header>Reports</q-list-header>
       <q-list v-for='taxi in TaxiList' :key="taxi.date_created">
+      <q-item label> Created Report: {{taxi.date_created | formattedDate }} </q-item>
       <q-item label> Date of Incident: {{taxi.date}} </q-item>
       <q-item label> Plate Number: {{taxi.plate_number}} </q-item>
       <q-item label> Taxi's Name: {{taxi.taxi_name}} </q-item>
@@ -56,7 +57,7 @@
       <q-item label> Details: {{taxi.details}} </q-item>
     </q-list>
 </div>
-<q-pagination v-model="page" :min="minPages" :max="maxPages" color="secondary"/>
+
 <!--
 <div class="button">
 <q-btn icon="keyboard arrow left" disabled>New</q-btn><q-btn icon="keyboard arrow right">Older</q-btn>
@@ -69,7 +70,7 @@
 import moment from 'moment'
 Vue.filter('formattedDate',function(value){
   var rawdate = value.toString().replace('-','');
-  return moment(new Date(parseInt(rawdate))).format('MMM-D-YYYY hh:mm:ss A')
+  return moment(new Date(parseInt(rawdate))).format('MMM/D/YYYY hh:mm: A')
 });
 
 import {
@@ -93,7 +94,6 @@ import {
   QCheckbox,
   QSearch,
   QRouteTab,
-  QPagination
 } from 'quasar'
 
 import Vue from 'vue'
@@ -112,7 +112,7 @@ let config = {
 }
 var app = firebase.initializeApp(config);
 var db = app.database()
-let list = db.ref('TaxiList')
+let list = db.ref('TaxiList').orderByChild('date_created')
 
 export default 
  {
@@ -134,16 +134,12 @@ export default
     QCheckbox,
     QSearch,
     QRouteTab,
-    QPagination
   },
    data () {
     return {
       selectedTab: 'tab-1',
       Complain: 'Complain',
       search: '',
-      page: 1,
-      minPages: 1,
-      maxPages: 27
     }
   },
     firebase: {
@@ -235,9 +231,5 @@ margin-left:10px;
 .bullet {
   margin-top:-30px;
   margin-bottom:-30px;
-}
-.q-pagination {
-  margin-left:80px;
-  margin-right:90px;
 }
 </style>
