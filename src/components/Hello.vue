@@ -45,16 +45,17 @@
 <div class="search-bar">
 <q-search v-model="search" placeholder="Search Taxi Plate Number"></q-search>
 </div>
+</div>
 <div class="data-feed">
     <q-list-header>Reports</q-list-header>
       <q-list v-for='taxi in TaxiList' :key="taxi.date_created">
-      <q-item label> Created Report: {{taxi.date_created | formattedDate }} </q-item>
-      <q-item label> Date of Incident: {{taxi.date}} </q-item>
-      <q-item label> Plate Number: {{taxi.plate_number}} </q-item>
-      <q-item label> Taxi's Name: {{taxi.taxi_name}} </q-item>
-      <q-item label> Violations:  </q-item>
+      <p> <strong> Created Report: </strong>{{taxi.date_created | formattedDate }} </p>
+      <p> <strong> Date of Incident: </strong> {{taxi.date}} </p>
+      <p> <strong> Plate Number: </strong> {{taxi.plate_number}} </p>
+      <p> <strong> Taxi's Name: </strong> {{taxi.taxi_name}} </p>
+      <p>  <strong> Violations: </strong>   </p>
       <q-item v-for='item in taxi.violation' :key="taxi.id"><li class="bullet">{{item}}</li></q-item>
-      <q-item label> Details: {{taxi.details}} </q-item>
+      <p> <strong> Details: </strong> {{taxi.details}}</p>
     </q-list>
 </div>
 
@@ -140,6 +141,7 @@ export default
       selectedTab: 'tab-1',
       Complain: 'Complain',
       search: '',
+      plate_number:[],
     }
   },
     firebase: {
@@ -229,7 +231,11 @@ margin-left:10px;
    margin-right: 138px;
 }
 .bullet {
+  margin-left:15px;
   margin-top:-30px;
-  margin-bottom:-30px;
+  list-style-type: circle;
+}
+p {
+margin-left:10px;
 }
 </style>
