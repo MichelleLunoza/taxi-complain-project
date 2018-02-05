@@ -8,7 +8,7 @@
   <q-tabs v-model="selectedTab" color="warning">
   <q-route-tab
     icon="local taxi"
-    to="/"
+    to="/feed"
      @click="feedTab"
     exact
     slot="title"
@@ -173,7 +173,7 @@ if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false}
       $router.push('/report')
     },
     feedTab (){
-      $router.push('/Hello')
+      $router.push('/feed')
       if(AdMob) AdMob.showInterstitial();
     }
   }
